@@ -60,13 +60,40 @@ animalToRemove.remove()
 
 /***** Deliverable 1 *****/
 function toggleColor(element) {
-    if (element.style.color === "green") {
-        element.style.color = "black"
+    if (element.style.color === "red") {
+      element.style.color = "black"
     } else {
-        element.style.color = "green"
+      element.style.color = "red"
     }
-}
-
-/***** Deliverable 2 *****/
-
-/***** Deliverable 3 *****/
+  }
+  
+  const header = document.querySelector('#header')
+  
+  header.addEventListener('click', function() {
+    toggleColor(header)
+  })
+  
+  /***** Deliverable 2 *****/
+  const likeBtn = document.querySelector('.like-button')
+  const pLike = document.querySelector('.likes')
+  
+  likeBtn.addEventListener('click', function() {
+    const likes = parseInt(pLike.textContent)
+    pLike.textContent = likes + 1 " Likes"
+  })
+  /***** Deliverable 3 *****/
+  const newGoalForm = document.querySelector('#new-goal-form')
+  
+  newGoalForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+  
+    const link = event.target.link.value
+    const description = event.target.description.value
+  
+    const goal = {
+      link: link
+      description: description
+    }
+  
+    renderGoal(goal)
+  })
